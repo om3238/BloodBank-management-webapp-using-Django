@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 400px;
+            margin-top: 50px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            background-color: #fff;
+        }
+        .container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .form-group .sign-in-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .form-group .sign-in-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .form-group .sign-in-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username">Username:</label>
+                <input type="text" id="id_username" name="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="id_password1">Password:</label>
+                <input type="password" id="id_password1" name="password1" class="form-control" required>
+                
+            </div>
+            <div class="form-group">
+                <label for="id_password2">Confirm Password:</label>
+                <input type="password" id="id_password2" name="password2" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-outline-success">Sign Up</button>
+        </form>
+        <div class="form-group sign-in-link">
+            <p>Already have an account? <a href="{% url 'login' %}">Sign In</a></p>
+        </div>
+    </div>
+    
+    <div class="container">
+            <h3> Username :</h3><br>
+            <li>150 characters or fewer. Letters, digits and @/./+/-/_ only.</li><br><br>
+            <h3>password :</h3>
+            <li>Your password can’t be too similar to your other personal information.</li>
+                <li>Your password must contain at least 8 characters.</li>
+                <li>Your password can’t be a commonly used password.</li>
+                <li>Your password can’t be entirely numeric.</li>
+                <li>This password is too short. It must contain at least 8 characters.</li>
+                <li>This password is too common.</li>
+                <li>This password is entirely numeric.</li>
+    </div>
+    <!-- Add Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

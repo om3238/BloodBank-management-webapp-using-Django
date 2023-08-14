@@ -1,0 +1,63 @@
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Deletion</title>
+</head>
+<body>
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete the blood bank entry for {{ bloodbank.name }} ({{ bloodbank.blood_group }})?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirm">
+        <a href="{% url 'bloodbank_list' %}">Cancel</a>
+    </form>
+</body>
+</html>
+ {% endcomment %}
+
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Blood Bank Entry</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom Styles */
+        body {
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+        }
+        .confirmation-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .confirmation-container h3 {
+            margin-bottom: 15px;
+        }
+        .btn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container confirmation-container">
+        <h3>Confirm Deletion</h3>
+        <p>Are you sure you want to delete the blood bank entry for {{ bloodbank.name }} ({{ bloodbank.blood_group }})?</p>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Confirm" class="btn btn-danger">
+            <a href="{% url 'bloodbank_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+    <!-- Add Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
